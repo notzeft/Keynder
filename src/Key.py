@@ -5,9 +5,12 @@ Created on Thu Apr 18 19:26:41 2019
 
 @author: lounis
 """
+
 from OpenSSL.crypto import *
 from Crypto.PublicKey import *
-from Exceptions import *
+
+from src.exceptions import *
+
 
 class Key:
     def __init__(self, data):
@@ -19,8 +22,8 @@ class Key:
         self.data = None
         self.pubkey = None
         self.set_key()
-             
-    def recherche_mot(self,mot):
+
+    def recherche_mot(self, mot):
         return self.data_brut.find(mot)
 
     def set_public_key(self):
@@ -28,28 +31,27 @@ class Key:
             self.pubkey = dump_publickey(FILETYPE_PEM, self.pkey)
         elif self.tipe == 'Pub':
             self.pubkey = self.data
-        
+
     def set_key(self):
         pri = self.recherche_mot('PRIVATE')
         pub = self.recherche_mot('PUBLIC')
-        if(pri!=-1):
+        if pri != -1:
             self.tipe = 'Pri'
-            try: #try PEM
+            try:  # try PEM
                 self.pkey = load_privatekey(FILETYPE_PEM, self.data_brut)
                 self.data = dump_privatekey(FILETYPE_PEM, self.pkey)
-
-            except: #try DER
+            except:  # try DER
                 try:
                     self.pkey = load_privatekey(FILETYPE_ASN1, self.data_brut)
                 except:
                     self.pkey = None
                     raise unknownTypeException()
-        elif(pub!=-1):
+        elif(pub != -1):
             self.tipe = 'Pub'
-            try: #try PEM
+            try:  # try PEM
                 self.pkey = load_publickey(FILETYPE_PEM, self.data_brut)
                 self.data = dump_publickey(FILETYPE_PEM, self.pkey)
-            except: #try DER
+            except:  # try DER
                 try:
                     self.pkey = load_publickey(FILETYPE_ASN1, self.data_brut)
                 except:
@@ -58,7 +60,7 @@ class Key:
         self.set_algo()
         self.taille = self.pkey.bits()
         self.set_public_key()
-            
+
     def set_algo(self):
         if self.pkey.type() == 408:
             self.algo = 'ECC'
@@ -68,14 +70,16 @@ class Key:
     def get_pkey(self):
         return self.pkey
 
-    # Checks if the key format is PEM and converts it otherwise.
     def check_format(self):
+        """ Checks if the key format is PEM and converts it otherwise. """
+        # TODO: Fix me
         return True
-        
+
     def print_key(self):
         print(self.cle)
-        print(self.algo+'.'+self.tipe)
+        print(self.algo + '.' + self.tipe)
         print(self.taille)
-        
-        
 
+
+if __name__ == '__main__':
+    pass

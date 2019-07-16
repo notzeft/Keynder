@@ -1,17 +1,14 @@
-# Authors
-
-* Aly Abdellatif
-* Michel Estaben
-* Aladdin Chettouh
-* Koceila Chikdene
-* Lounis Berrabah
-* Semi Dhouib
-
-
 # Keynder
+Keynder is a Python program for matching private keys with public keys (RSA, ECC) and certificates (ASN.1, PEM, X509) in a given folder (example : '~/Documents/').
+Your folder can contains any type of files (.bin, .zip, .txt, ...). These keys and Certificates will be stored in a local database (created by default) or in an existing one (See Usage).
 
-Keynder is a Python Program for matching Private keys with Public keys(RSA,ECC) and Certificates(ASN.1,PEM,X509) in a given Folder(example : '~/Documents/'). Your Folder can contain any type of files(.bin,.zip,.txt,etc...). These keys and Certificates will be stocked in a database(created by default)or in an existing one(See Usage). Created for the French National Gendarmerie
+This project was created for the French National Gendarmerie.
 
+
+## Installation
+`Keynder` needs two external libraries :
+* pyOpenSSl : https://github.com/pyca/pyopenssl
+* pyCryptro : https://github.com/dlitz/pycrypto
 
 
 ## Usage
@@ -30,17 +27,28 @@ Keynder is a Python Program for matching Private keys with Public keys(RSA,ECC) 
 -m or --match:
 	This option is to be executed with or without the injection option. In case it is executed without injection, it matches the data already existing in the database.
 
+
 ## Examples
-
 ```python
-
-	python3 main.py -d '/home/project/directory/' -i -b 'mydatabase.db' -m #(for the whole procedure, grabbing, injecting and matching);
-
-	python3 main.py -d '/home/project/directory/' -i -b 'mydatabase.db' #(for grabbing and injecting without matching into exisiting database or database with custom name);
-	python3 main.py -d '/home/project/directory/' -b 'mydatabase.db' -m #(matches data into the already existing database);
-
-	python3 main.py -d '/home/project/directory/' -i -m #(injects into the defaults database 'certs.db' and matches data. If the database does not exist it will create it).
-
+python3 main.py -d '/home/project/directory/' -i -b 'mydatabase.db' -m # (for the whole procedure, grabbing, injecting and matching)
+python3 main.py -d '/home/project/directory/' -i -b 'mydatabase.db' # (for grabbing and injecting without matching into existing database or a database with a custom name)
+python3 main.py -d '/home/project/directory/' -b 'mydatabase.db' -m # (matches data into the already existing database)
+python3 main.py -d '/home/project/directory/' -i -m # (injects into the defaults database 'certs.db' and matches data. If the database does not exists it will create it)
 ```
+
+
+## TODO
+* Translates some french commentaries in english.
+
+
+## Authors
+* Aly Abdellatif
+* Michel Estaben
+* Aladdin Chettouh
+* Koceila Chikdene
+* Lounis Berrabah
+* Semi Dhouib
+
+
 ## License
-[GNU GENERAL PUBLIC LICENSE V3] (https://www.gnu.org/licenses/gpl-3.0.en.html)
+[GNU GENERAL PUBLIC LICENSE V3](https://www.gnu.org/licenses/gpl-3.0.en.html)

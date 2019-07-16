@@ -3,7 +3,7 @@
 * Aly Abdellatif
 * Michel Estaben
 * Aladdin Chettouh
-* Koceila Chikhdene
+* Koceila Chikdene
 * Lounis Berrabah
 * Semi Dhouib
 

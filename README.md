@@ -10,7 +10,7 @@
 
 # Keynder
 
-Keynder is a python program for matching public and private keys(Certificates,ASN.1,PEM,X509) in a given Folder(example : '~/Documents/'). Your Folder can contain any type of files(.bin,.zip,.txt,etc...)
+Keynder is a Python Program for matching Public and Private keys(Certificates,ASN.1,PEM,X509) in a given Folder(example : '~/Documents/'). Your Folder can contain any type of files(.bin,.zip,.txt,etc...). These keys and Certificates will be stocked in a database(created by default).
 
 
 

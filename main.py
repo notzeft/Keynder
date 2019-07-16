@@ -2,8 +2,8 @@ import getopt
 import sys
 
 from src.db import Database
-from src.Classifier import Classifier
-from src.StringGrabber import StringGrabber as Grabber
+from src.classifier import Classifier
+from src.stringGrabber import StringGrabber as Grabber
 
 
 def main():

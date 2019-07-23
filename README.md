@@ -37,10 +37,6 @@ python3 main.py -d '/home/project/directory/' -i -m # (injects into the defaults
 ```
 
 
-## TODO
-* Translates some french commentaries in english.
-
-
 ## Authors
 * Aly Abdellatif
 * Michel Estaben
